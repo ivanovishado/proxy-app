@@ -18,3 +18,15 @@ const (
 	Medium
 	High
 )
+
+// ShiftArray inserts an element to a strings list and shifts the following elements
+func ShiftArray(array *[]string, position int, value string) {
+	//  extend array by one
+	*array = append(*array, "")
+
+	// shift values
+	copy((*array)[position+1:], (*array)[position:])
+
+	// insert value
+	(*array)[position] = value
+}

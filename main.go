@@ -2,15 +2,15 @@ package main
 
 import (
 	handlers "github.com/ivanovishado/proxy-app/api/handlers"
-	middleware "github.com/ivanovishado/proxy-app/api/middlewares"
+	"github.com/ivanovishado/proxy-app/api/middleware"
 	server "github.com/ivanovishado/proxy-app/api/server"
 	utils "github.com/ivanovishado/proxy-app/api/utils"
 )
 
 func main() {
 	utils.LoadEnvVars()
+	middleware.SetPriorityLevels()
 	app := server.SetUp()
-	middleware.InitQueue()
 	handlers.RedirectionHandler(app)
 	server.RunServer(app)
 }
