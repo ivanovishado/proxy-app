@@ -40,7 +40,6 @@ type ResponseText struct {
 
 func TestAlgorithms(t *testing.T) {
 	cases := []struct {
-		// Attr
 		Domain string
 		Output string
 	}{
@@ -50,8 +49,6 @@ func TestAlgorithms(t *testing.T) {
 		{Domain: "beta", Output: `["alpha","alpha","beta","omega"]`},
 		{Domain: "beta", Output: `["alpha","alpha","beta","beta","omega"]`},
 		{Domain: "", Output: "domain error"},
-
-		// struct
 	}
 
 	valuesToCompare := &Response{}
